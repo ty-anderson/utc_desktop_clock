@@ -1,21 +1,17 @@
 import tkinter as tk
 import datetime
 
-# Create the main application window
 root = tk.Tk()
 root.title("UTC Clock")
 root.overrideredirect(True)
 root.attributes('-topmost', True)
 root.configure(bg='black')
-
-# Set the transparency color
 root.attributes('-transparentcolor', 'black')
 
-# Create a label to display the time
 time_label = tk.Label(root, font=('Helvetica', 20), fg='black')
 time_label.pack(pady=20)
 
-# Define the function to update the time
+
 def update_time():
     current_time = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
     time_label.config(text=f'{current_time}UTC')
@@ -30,9 +26,5 @@ x = screen_width - window_width
 y = 0
 
 root.geometry(f'{window_width}x{window_height}+{x}+{y}')
-
-# Call the function to start the updates
 update_time()
-
-# Start the Tkinter event loop
 root.mainloop()
